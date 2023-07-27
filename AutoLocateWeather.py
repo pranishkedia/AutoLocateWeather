@@ -1,5 +1,7 @@
 import requests, json
 
+api_key = '7abbf1993ddde2bc4ee77e2cd4f8099b'
+
 def get_ip_address():
     try:
         response = requests.get("https://ipinfo.io")
@@ -44,7 +46,7 @@ def display_weather_info(weather_data):
         print("Weather information not available.")
 
 
-api_key = '7abbf1993ddde2bc4ee77e2cd4f8099b'
+
 
 ip_address = get_ip_address()
 if ip_address:
