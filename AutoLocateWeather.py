@@ -36,17 +36,15 @@ def get_weather_info(latitude, longitude, api_key):
 def display_weather_info(weather_data):
     if weather_data:
         city = weather_data['name']
-        temperature = weather_data['main']['temp']
+        temperature_kelvin = weather_data['main']['temp']
+        temperature_celcius = temperature_kelvin - 273.15
         description = weather_data['weather'][0]['description']
 
         print(f"Weather in {city}:")
-        print(f"Temperature: {temperature} K")
+        print(f"Temperature: {temperature_celcius:.0f} °C")
         print(f"Description: {description}")
     else:
         print("Weather information not available.")
-
-
-
 
 ip_address = get_ip_address()
 if ip_address:
