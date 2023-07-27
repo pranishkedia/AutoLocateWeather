@@ -30,3 +30,17 @@ def get_weather_info(latitude, longitude, api_key):
     except Exception as e:
         print("Error getting weather info:", e)
     return None
+
+def display_weather_info(weather_data):
+    if weather_data:
+        city = weather_data['name']
+        temperature = weather_data['main']['temp']
+        description = weather_data['weather'][0]['description']
+
+        print(f"Weather in {city}:")
+        print(f"Temperature: {temperature} K")
+        print(f"Description: {description}")
+    else:
+        print("Weather information not available.")
+
+
