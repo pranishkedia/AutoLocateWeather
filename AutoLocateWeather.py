@@ -1,4 +1,4 @@
-import requests
+import requests, json
 
 def get_ip_address():
     try:
@@ -44,3 +44,12 @@ def display_weather_info(weather_data):
         print("Weather information not available.")
 
 
+api_key = '7abbf1993ddde2bc4ee77e2cd4f8099b'
+
+ip_address = get_ip_address()
+if ip_address:
+    location_info = get_location_info(ip_address)
+    if location_info:
+        latitude, longitude = location_info['loc'].split(',')
+        weather_data = get_weather_info(latitude, longitude, api_key)
+        display_weather_info(weather_data)
